@@ -14,10 +14,18 @@ $error: #ff3e3e;
 }
 
 .cwpcum {
+    position: relative;
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: cover;
-    padding: 2px 15px
+    background-size: cover
+}
+
+.cwpcum__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
 }
 
 .cwpcum__title {
@@ -25,8 +33,13 @@ $error: #ff3e3e;
 }
 
 .cwpcum-item {
+    position: relative;
     margin-bottom: 32px;
     line-height: 24px;
+
+    &:last-child {
+        margin-bottom: 0
+    }
 }
 
 .cwpcum-item__icon {

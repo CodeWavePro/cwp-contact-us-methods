@@ -10,6 +10,24 @@ $options = [
         'desc'  => esc_html__( 'Please enter margin top value for fields wrapper in pixels', 'mebel-laim' )
     ],
 
+    'padding_top'  => [
+        'type'  => 'text',
+        'label' => esc_html__( 'Padding Top (px)', 'mebel-laim' ),
+        'desc'  => esc_html__( 'Please enter padding top value for fields wrapper in pixels', 'mebel-laim' )
+    ],
+
+    'padding_bottom'  => [
+        'type'  => 'text',
+        'label' => esc_html__( 'Padding Bottom (px)', 'mebel-laim' ),
+        'desc'  => esc_html__( 'Please enter padding bottom value for fields wrapper in pixels', 'mebel-laim' )
+    ],
+
+    'padding_left_right'  => [
+        'type'  => 'text',
+        'label' => esc_html__( 'Padding Left And Right (px)', 'mebel-laim' ),
+        'desc'  => esc_html__( 'Please enter padding left and right value for fields wrapper in pixels', 'mebel-laim' )
+    ],
+
     'title'  => [
         'type'  => 'text',
         'label' => esc_html__( 'Title', 'mebel-laim' ),
@@ -61,29 +79,55 @@ $options = [
         'sortable'          => true
     ],
 
-    'backgropund_image' => [
-        'type'          => 'upload',
-        'label'         => esc_html__( 'Background Image', 'mebel-laim' ),
-        'desc'          => esc_html__( 'Please upload background image or choose existing from library', 'mebel-laim' ),
-        'images_only'   => true
-    ],
+    'is_background' => [
+        'type'  => 'multi-picker',
+        'label' => false,
+        'desc'  => false,
+        'value' => [
+            'choice'    => 'yes'
+        ],
 
-    'overlay_color'  => [
-        'type'  => 'color-picker',
-        'label' => esc_html__( 'Background Overlay Color', 'mebel-laim' ),
-        'desc'  => esc_html__( 'Please choose color or write its value in HEX', 'mebel-laim' ),
-        'value' => '#fff'
-    ],
+        'picker'    => [
+            'choice'    => [
+                'type'      => 'select',
+                'label'     => esc_html__( 'Add Background Image?', 'mebel-laim' ),
+                'desc'      => esc_html__( 'Please choose if background image is added', 'mebel-laim' ),
+                'choices'   => [
+                    'yes'   => esc_html__( 'Yes', 'mebel-laim' ),
+                    'no'    => esc_html__( 'No', 'mebel-laim')
+                ]
+            ]
+        ],
 
-    'overlay_opacity'   => [
-        'type'          => 'slider',
-        'label'         => esc_html__( 'Overlay Opacity', 'mebel-laim' ),
-        'desc'          => esc_html__( 'Please select the overlay opacity (0 - min color, 1 - max color)', 'mebel-laim' ),
-        'value'         => 0.5,
-        'properties'    => [
-            'min'   => 0,
-            'max'   => 1,
-            'step'  => 0.05
-        ]
+        'choices'   => [
+            'yes'   => [
+                'background_image' => [
+                    'type'          => 'upload',
+                    'label'         => esc_html__( 'Background Image', 'mebel-laim' ),
+                    'desc'          => esc_html__( 'Please upload background image or choose existing from library', 'mebel-laim' ),
+                    'images_only'   => true
+                ],
+
+                'overlay_color'  => [
+                    'type'  => 'color-picker',
+                    'label' => esc_html__( 'Background Overlay Color', 'mebel-laim' ),
+                    'desc'  => esc_html__( 'Please choose color or write its value in HEX', 'mebel-laim' ),
+                    'value' => '#fff'
+                ],
+
+                'overlay_opacity'   => [
+                    'type'          => 'slider',
+                    'label'         => esc_html__( 'Overlay Opacity', 'mebel-laim' ),
+                    'desc'          => esc_html__( 'Please select the overlay opacity (0 - min color, 1 - max color)', 'mebel-laim' ),
+                    'value'         => 0.5,
+                    'properties'    => [
+                        'min'   => 0,
+                        'max'   => 1,
+                        'step'  => 0.05
+                    ]
+                ]
+            ]
+        ],
+        'show_borders'  => false
     ]
 ];

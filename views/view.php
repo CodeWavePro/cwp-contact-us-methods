@@ -5,13 +5,42 @@ if ( !defined( 'FW' ) ) {
 
 // Contact us methods wrapper margin top.
 $margin_top = ( isset( $atts['margin_top'] ) && $atts['margin_top'] ) ? $atts['margin_top'] . 'px' : '0';
-// Contact us methods wrapper background image.
-$backgropund_image = ( isset( $atts['backgropund_image'] ) && $atts['backgropund_image'] ) ? $atts['backgropund_image']['url'] : '';
+// Contact us methods wrapper padding for all sides.
+$padding_top = ( isset( $atts['padding_top'] ) && $atts['padding_top'] ) ? $atts['padding_top'] . 'px' : '0';
+$padding_bottom = ( isset( $atts['padding_bottom'] ) && $atts['padding_bottom'] ) ? $atts['padding_bottom'] . 'px' : '0';
+$padding_left_right = ( isset( $atts['padding_left_right'] ) && $atts['padding_left_right'] ) ? $atts['padding_left_right'] . 'px' : '0';
+// If background.
+if ( $atts['is_background']['choice'] === 'yes' ) {
+	// Contact us methods wrapper background image.
+	$background_image = ( isset( $atts['is_background']['yes']['background_image'] ) && $atts['is_background']['yes']['background_image'] ) ?
+						 $atts['is_background']['yes']['background_image']['url'] :
+						 '';
+	// Contact us methods wrapper overlay color.
+	$overlay_color = ( isset( $atts['is_background']['yes']['overlay_color'] ) && $atts['is_background']['yes']['overlay_color'] ) ?
+					 $atts['is_background']['yes']['overlay_color'] :
+					 '#000';
+	// Contact us methods wrapper overlay opacity.
+	$overlay_opacity = ( isset( $atts['is_background']['yes']['overlay_opacity'] ) && $atts['is_background']['yes']['overlay_opacity'] ) ?
+					   $atts['is_background']['yes']['overlay_opacity'] :
+					   '1';
+}	else {
+	// Default values.
+	$backgropund_image = '';
+	$overlay_color = 'transparent';
+	$overlay_opacity = '1';
+}
 
 // If contact-us-methods array is not empty.
 if ( isset( $atts['contact_us_fields'] ) && $atts['contact_us_fields'] ) {
-	// Contact methods wrapper.
-	echo '<ul class = "cwpcum" style = "margin-top: ' . esc_attr( $margin_top ) . '; background-image: url(' . esc_attr( $backgropund_image ) . ')">';
+	// Contact methods wrapper and its styles.
+	echo '<ul class = "cwpcum"
+			  style = "margin-top: ' . esc_attr( $margin_top ) . ';
+			  		   padding: ' . esc_attr( $padding_top ) . ' ' . esc_attr( $padding_left_right ) . ' ' . esc_attr( $padding_bottom ) . ';
+			  		   background-image: url(' . esc_attr( $background_image ) . ')">';
+	// Contact methods wrapper overlay and its styles.
+	echo '<span class = "cwpcum__overlay"
+				style = "background-color: ' . esc_attr( $overlay_color ) . ';
+						 opacity: ' . esc_attr( $overlay_opacity ) . '"></span>';
 
 	// If header text is not empty.
 	if ( isset( $atts['title'] ) && $atts['title'] ) {
