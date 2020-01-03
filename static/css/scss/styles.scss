@@ -1,0 +1,43 @@
+// Colors variables.
+$brand: #58c800;
+$white: #f9f9f9;
+$text: #323232;
+$error: #ff3e3e;
+
+/**
+ * Short transition writing.
+ * @param $time is for seconds or miliseconds.
+ * Example: @include transition(300ms).
+ */
+@mixin transition($time) {
+    transition: all ease-in-out $time
+}
+
+.cwpcum {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding: 2px 15px
+}
+
+.cwpcum__title {
+    margin-bottom: 25px
+}
+
+.cwpcum-item {
+    margin-bottom: 32px;
+    line-height: 24px;
+}
+
+.cwpcum-item__icon {
+    display: inline-block;
+    width: 16px;
+    text-align: center;
+    vertical-align: middle;
+    margin-right: 8px
+}
+
+.cwpcum-item__link {
+    color: $text;
+    vertical-align: top
+}
