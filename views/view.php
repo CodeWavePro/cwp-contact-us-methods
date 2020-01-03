@@ -54,7 +54,9 @@ if ( isset( $atts['contact_us_fields'] ) && $atts['contact_us_fields'] ) {
 		// If field icon is chosen.
 		if ( isset( $contact['field_icon'] ) && $contact['field_icon'] ) {
 			$field_icon_color = ( isset( $contact['field_icon_color'] ) && $contact['field_icon_color'] ) ? $contact['field_icon_color'] : '#000';
-			echo '<i class = "' . esc_attr( $contact['field_icon']['icon-class'] ) . ' cwpcum-item__icon" style = "color: ' . esc_attr( $field_icon_color ) . '"></i>';
+			echo '<i class = "' . esc_attr( $contact['field_icon']['icon-class'] ) . ' cwpcum-item__icon"
+					 style = "color: ' . esc_attr( $field_icon_color ) . ';
+					 		  border-color: ' . esc_attr( $field_icon_color ) . '"></i>';
 		}
 
 		// If field text is not empty.
