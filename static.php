@@ -15,12 +15,4 @@ if ( !is_admin() ) {
 		    $uri . '/static/css/css/styles.min.css'
 		);
 	}
-
-	if ( !wp_script_is( 'fw-shortcode-cwp-contact-us-methods', 'enqueued' ) ) {
-		wp_enqueue_script(
-			'fw-shortcode-cwp-contact-us-methods',
-			$uri . '/static/js/scripts.min.js',
-			array( 'jquery' )
-		);
-	}
 }
