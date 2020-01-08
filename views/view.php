@@ -27,12 +27,6 @@ if ( $atts['is_background']['choice'] === 'yes' ) {
 								'';
 			break;
 
-		case 'small':
-			$background_image = ( isset( $atts['is_background']['yes']['background_image'] ) && $atts['is_background']['yes']['background_image'] ) ?
-								$atts['is_background']['yes']['background_image']['sizes']['small']['url'] :
-								'';
-			break;
-
 		case 'medium':
 			$background_image = ( isset( $atts['is_background']['yes']['background_image'] ) && $atts['is_background']['yes']['background_image'] ) ?
 								$atts['is_background']['yes']['background_image']['sizes']['medium']['url'] :
