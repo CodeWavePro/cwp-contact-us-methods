@@ -11,10 +11,6 @@ $padding_bottom = ( isset( $atts['padding_bottom'] ) && $atts['padding_bottom'] 
 $padding_left_right = ( isset( $atts['padding_left_right'] ) && $atts['padding_left_right'] ) ? $atts['padding_left_right'] . 'px' : '0';
 // If background.
 if ( $atts['is_background']['choice'] === 'yes' ) {
-	// Contact us methods wrapper background image.
-	$background_image = ( isset( $atts['is_background']['yes']['background_image'] ) && $atts['is_background']['yes']['background_image'] ) ?
-						 $atts['is_background']['yes']['background_image']['url'] :
-						 '';
 	// Contact us methods wrapper overlay color.
 	$overlay_color = ( isset( $atts['is_background']['yes']['overlay_color'] ) && $atts['is_background']['yes']['overlay_color'] ) ?
 					 $atts['is_background']['yes']['overlay_color'] :
@@ -23,6 +19,38 @@ if ( $atts['is_background']['choice'] === 'yes' ) {
 	$overlay_opacity = ( isset( $atts['is_background']['yes']['overlay_opacity'] ) && $atts['is_background']['yes']['overlay_opacity'] ) ?
 					   $atts['is_background']['yes']['overlay_opacity'] :
 					   '1';
+
+	switch ( $atts['is_background']['yes']['background_image_quality'] ) {
+		case 'thumbnail':
+			$background_image = ( isset( $atts['is_background']['yes']['background_image'] ) && $atts['is_background']['yes']['background_image'] ) ?
+								$atts['is_background']['yes']['background_image']['sizes']['thumbnail']['url'] :
+								'';
+			break;
+
+		case 'small':
+			$background_image = ( isset( $atts['is_background']['yes']['background_image'] ) && $atts['is_background']['yes']['background_image'] ) ?
+								$atts['is_background']['yes']['background_image']['sizes']['small']['url'] :
+								'';
+			break;
+
+		case 'medium':
+			$background_image = ( isset( $atts['is_background']['yes']['background_image'] ) && $atts['is_background']['yes']['background_image'] ) ?
+								$atts['is_background']['yes']['background_image']['sizes']['medium']['url'] :
+								'';
+			break;
+
+		case 'large':
+			$background_image = ( isset( $atts['is_background']['yes']['background_image'] ) && $atts['is_background']['yes']['background_image'] ) ?
+								$atts['is_background']['yes']['background_image']['sizes']['large']['url'] :
+								'';
+			break;
+		
+		default:
+			$background_image = ( isset( $atts['is_background']['yes']['background_image'] ) && $atts['is_background']['yes']['background_image'] ) ?
+								$atts['is_background']['yes']['background_image']['sizes']['full']['url'] :
+								'';
+			break;
+	}
 }	else {
 	// Default values.
 	$backgropund_image = '';
